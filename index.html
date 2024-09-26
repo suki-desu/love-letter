@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:))</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        body {
+            height: 100dvh;
+            width: 100dvw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+            background-color: white;
+            flex-direction: column;
+            transition: background-color 3s;
+            padding: 10px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column;
+        }
+
+        .box {
+            max-width: 1000px;
+            min-width: 350px;
+            height: 0px;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            transition: height 2.5s ease-in-out;
+            background-color: #9455f4;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            border-radius: 5px;
+        }
+
+        .open {
+            height: 100%;
+        }
+
+        .openBackground {
+            background-color: #683bab;
+        }
+
+        .heart>img {
+            position: relative;
+            transform: translate(0%, -50%);
+            transition: transform 2s;
+            border: none;
+            z-index: 1;
+            height: 50px;
+            width: 50px;
+        }
+
+        .text {
+            font-size: 1vw;
+            padding: 30px;
+            width: 100%;
+            font-family: 'Hind', sans-serif;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        .text>img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .text>p {
+            margin-top: 10px;
+            font-size: 12pt;
+        }
+
+        a {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+        }
+
+        .heart>img:hover {
+            animation-name: beat;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-play-state: running;
+        }
+
+
+        @keyframes beat {
+            0% {
+                height: 50px;
+                width: 50px;
+            }
+
+            25% {
+                height: 58px;
+                width: 58px;
+            }
+
+            30% {
+                height: 50px;
+                width: 50px;
+            }
+
+            50% {
+                height: 45px;
+                width: 45px;
+            }
+
+            60% {
+                height: 50px;
+                width: 50px;
+            }
+
+            75% {
+                height: 58px;
+                width: 58px;
+            }
+
+            100% {
+                height: 50px;
+                width: 50px;
+            }
+
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="container">
+        <div id="box" class="box">
+            <div class="text">
+                <!--Enter Love Letter Here-->
+            </div>
+        </div>
+        <div class="heart" id="heart">
+            <img src="images.png" id="open" />
+        </div>
+    </div>
+
+    <script>
+        let button = document.getElementById("open");
+        button.onclick = function () {
+            let box = document.getElementById("box");
+            let body = document.getElementById("body");
+            let heartImg = document.getElementById("open");
+
+            body.classList.toggle("openBackground");
+            box.classList.toggle("open");
+            if (box.classList.contains("open")) {
+                heartImg.style.animationPlayState = "paused";
+            } else {
+                heartImg.style.animationPlayState = "running";
+            }
+        }
+    </script>
+</body>
+
+</html>
